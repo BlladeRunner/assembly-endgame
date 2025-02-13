@@ -1,4 +1,18 @@
+import { languages } from "./languages";
+
 export default function Main() {
+  const languageElements = languages.map((lang) => {
+    const styles = {
+      backgroundColor: lang.backgroundColor,
+      color: lang.color,
+    };
+    return (
+      <span key={lang.name} className="chip" style={styles}>
+        {lang.name}
+      </span>
+    );
+  });
+
   return (
     <main>
       <header>
@@ -12,6 +26,7 @@ export default function Main() {
         <h2>You Win!</h2>
         <p>Well done! 🎉</p>
       </section>
+      <section className="language-chips">{languageElements}</section>
     </main>
   );
 }
