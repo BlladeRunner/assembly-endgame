@@ -1,30 +1,48 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: "Hanken Grotesk", Arial, sans-serif;
-    background-color: #262626;
-    color: #D9D9D9;
-    padding: 20px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+  margin: 0;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  background-color: #262626;
+  color: #d9d9d9;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 header {
-    text-align: center;
+  text-align: center;
 }
 
 header > h1 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #F9F4DA;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #f9f4da;
 }
 
 header > p {
-    font-size: 0.875rem;
-    max-width: 350px;
-    color: #8E8E8E;
+  font-size: 0.875rem;
+  max-width: 350px;
+  color: #8e8e8e;
+}
+
+section.game-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #10a95b;
+  color: #f9f4da;
+  border-radius: 4px;
+  margin-block: 30px;
+}
+
+section.game-status > p {
+  margin: 5px;
+}
+section.game-status > h2 {
+  font-size: 1.25rem;
+  margin: 5px;
 }

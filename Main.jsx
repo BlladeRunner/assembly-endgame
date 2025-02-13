@@ -8,6 +8,10 @@ export default function Main() {
           from Assembly!
         </p>
       </header>
+      <section className="game-status">
+        <h2>You Win!</h2>
+        <p>Well done! 🎉</p>
+      </section>
     </main>
   );
 }
