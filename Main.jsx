@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { languages } from "./languages";
 
 export default function Main() {
+  const [currentWord, setCurrentWord] = useState("react");
+
   const languageElements = languages.map((lang) => {
     const styles = {
       backgroundColor: lang.backgroundColor,
@@ -12,6 +15,10 @@ export default function Main() {
       </span>
     );
   });
+
+  const letterElements = currentWord
+    .split("")
+    .map((letter, index) => <span key={index}>{letter.toUpperCase()}</span>);
 
   return (
     <main>
@@ -27,6 +34,7 @@ export default function Main() {
         <p>Well done! 🎉</p>
       </section>
       <section className="language-chips">{languageElements}</section>
+      <section className="word">{letterElements}</section>
     </main>
   );
 }
