@@ -4,6 +4,8 @@ import { languages } from "./languages";
 export default function Main() {
   const [currentWord, setCurrentWord] = useState("react");
 
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
   const languageElements = languages.map((lang) => {
     const styles = {
       backgroundColor: lang.backgroundColor,
@@ -20,6 +22,10 @@ export default function Main() {
     .split("")
     .map((letter, index) => <span key={index}>{letter.toUpperCase()}</span>);
 
+  const keyboardElements = alphabet
+    .split("")
+    .map((letter) => <button key={letter}>{letter.toUpperCase()}</button>);
+
   return (
     <main>
       <header>
@@ -35,6 +41,7 @@ export default function Main() {
       </section>
       <section className="language-chips">{languageElements}</section>
       <section className="word">{letterElements}</section>
+      <section className="keyboard">{keyboardElements}</section>
     </main>
   );
 }
