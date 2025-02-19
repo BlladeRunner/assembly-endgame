@@ -28,7 +28,11 @@ export default function Main() {
 
   const letterElements = currentWord
     .split("")
-    .map((letter, index) => <span key={index}>{letter.toUpperCase()}</span>);
+    .map((letter, index) => (
+      <span key={index}>
+        {guessedLetters.includes(letter) ? letter.toUpperCase() : ""}
+      </span>
+    ));
 
   const keyboardElements = alphabet.split("").map((letter) => {
     const isGuessed = guessedLetters.includes(letter);
