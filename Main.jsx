@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { languages } from "./languages";
 import { clsx } from "clsx";
+import { languages } from "./languages";
 
-export default function Main() {
+export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = useState("react");
   const [guessedLetters, setGuessedLetters] = useState([]);
 
@@ -18,13 +18,15 @@ export default function Main() {
     );
   }
 
-  const languageElements = languages.map((lang) => {
+  const languageElements = languages.map((lang, index) => {
+    const isLanguageLost = index < wrongGuessCount;
     const styles = {
       backgroundColor: lang.backgroundColor,
       color: lang.color,
     };
+    const className = clsx("chip", isLanguageLost && "lost");
     return (
-      <span key={lang.name} className="chip" style={styles}>
+      <span className={className} style={styles} key={lang.name}>
         {lang.name}
       </span>
     );
@@ -42,7 +44,10 @@ export default function Main() {
     const isGuessed = guessedLetters.includes(letter);
     const isCorrect = isGuessed && currentWord.includes(letter);
     const isWrong = isGuessed && !currentWord.includes(letter);
-    const className = clsx({ correct: isCorrect, wrong: isWrong });
+    const className = clsx({
+      correct: isCorrect,
+      wrong: isWrong,
+    });
 
     return (
       <button
@@ -65,7 +70,7 @@ export default function Main() {
         </p>
       </header>
       <section className="game-status">
-        <h2>You Win!</h2>
+        <h2>You win!</h2>
         <p>Well done! 🎉</p>
       </section>
       <section className="language-chips">{languageElements}</section>
